@@ -1,0 +1,101 @@
+                                                                              **Steam Games Projesi Detaylı Rapor**
+
+### 1. Proje Hedefi**
+Bu proje, Steam platformundaki oyun verilerini analiz ederek şunları başarmayı hedefledi:
+- Kullanıcı davranışlarını analiz etmek,
+- Oyunların popülerlik faktörlerini anlamak,
+- Oyun öneri sistemi geliştirmek,
+- Fiyatlandırma stratejilerini değerlendirmek,
+- Oyun türleri ve kullanıcı incelemeleri üzerinde içgörüler elde etmek.
+
+---
+
+### **2. Kullanılan Araçlar**
+#### **Python Kütüphaneleri:**
+- **Pandas**: Veri manipülasyonu ve analizi için.
+- **Matplotlib, Plotly**: Veriyi görselleştirmek için.
+- **NumPy**: Veri işleme ve matematiksel hesaplamalar için.
+- **NLTK, VADER**: Doğal Dil İşleme (NLP) ve duygu analizi için.
+- **XGBoost**: Makine öğrenmesi modeli oluşturmak için.
+- **Scikit-Learn**: Model değerlendirmesi ve hiperparametre optimizasyonu için.
+
+#### ** Yöntemler:**
+- **Z-Score ve IQR (Interquartile Range)**: Aykırı değerlerin tespiti ve düzeltilmesi.
+- **Winsorization**: Aykırı değerleri düzenleme yöntemi.
+- **Stopwords Filtreleme ve Lemmatization**: Metin temizleme ve kelime köklerine indirme.
+- **TF-IDF (Term Frequency-Inverse Document Frequency)**: Kelime önem sıralaması ve özellik çıkarımı.
+- **XGBoost ve GridSearchCV**: Makine öğrenmesi modelleme ve hiperparametre optimizasyonu.
+
+---
+
+### **3. Veri Temizliği ve Ön İşleme**
+
+#### **3.1. Aykırı Değerlerin Tespiti ve Düzeltilmesi:**
+- **Z-Score** ve **IQR** yöntemleri kullanılarak aykırı değerler başarıyla tespit edildi.
+- Winsorization yöntemi ile aykırı değerler düzeltilerek veri kaybı olmadan modelin doğruluğu artırıldı.
+
+#### **3.2. Eksik Değerlerin İşlenmesi:**
+- Verideki eksik (NaN) değerler tespit edildi ve uygun stratejilerle dolduruldu.
+- "owners", "price", "release_date" gibi sütunlardaki eksik veriler, medyan veya ortalama ile dolduruldu.
+
+#### **3.3. Veri Dönüşümleri:**
+- Fiyat verileri logaritmik dönüşüme uğratılarak aşırı uç değerlerin etkisi azaltıldı.
+- "release_date" tarihsel verisi, "release_year" gibi anlamlı bir özelliğe dönüştürüldü.
+
+---
+
+### **4. NLP Analizi**
+#### **4.1. Duygu Analizi (Sentiment Analysis):**
+- **VADER Sentiment Analysis** kullanılarak oyun açıklamaları ve oyuncu yorumları üzerinde duygu analizi yapıldı.
+- Her açıklamanın pozitif, negatif veya nötr olduğu tespit edildi.
+
+#### **4.2. Kelime Bulutu (Word Cloud):**
+- Temizlenmiş metinle oluşturulan kelime bulutu sayesinde oyun açıklamalarındaki en önemli terimler görselleştirildi.
+- "battle", "game", "action", "strategy" gibi oyun temalı kelimeler öne çıktı.
+
+#### **4.3. TF-IDF ile Önemli Kelimelerin Çıkarılması:**
+- Kelimelerin önem sıralaması belirlendi ve oyun içeriklerinin tematik olarak analizi sağlandı.
+
+---
+
+### **5. Makine Öğrenmesi ve Modelleme**
+#### ** Model Performansı:**
+- **Mean Squared Error (MSE):** 595,276.46
+- **R^2 Skoru:** 0.745 (Model doğruluğu %74).
+- XGBoost modeli, oyunların popülerlik tahminlerinde yüksek doğruluk sağladı.
+
+#### **. Hiperparametre Optimizasyonu:**
+- **GridSearchCV** kullanılarak XGBoost modeli için en iyi hiperparametreler belirlendi.
+- Optimize edilmiş model daha yüksek doğruluk sağladı.
+
+#### ** Segmentasyon ve Öneri Sistemi:**
+- **K-Means Clustering** ile oyunlar segmentlere ayrıldı.
+- İçerik tabanlı öneri sistemi geliştirildi (TF-IDF ve cosine similarity kullanılarak).
+- Kullanıcıların oyun geçmişine göre kişiselleştirilmiş öneriler sunuldu.
+
+---
+
+### **6. Görselleştirmeler ve Bulgular**
+#### **6.1. Fiyat Dağılımı:**
+- En az ve en çok fiyatlandırılan oyunlar analiz edildi.
+- Log-price dönüşümü ile aşırı uçlar dengelendi.
+
+#### **6.2. Tür ve Popülerlik Analizi:**
+- En çok tercih edilen oyun türleri belirlendi.
+- Kullanıcı incelemeleri ve satışlar üzerinden oyunların popülerliği değerlendirildi.
+
+#### **6.3. Kelime Bulutu ve Duygu Analizi:**
+- En çok kullanılan oyun açıklamaları görselleştirildi.
+- Olumlu ve olumsuz yorumlar görsel analizle ayrıştırıldı.
+
+---
+
+### **7. Sonuç ve Öneriler**
+#### **Başarılar:**
+- Veri Temizliği ve Ön İşleme işlemleri başarıyla yapıldı.
+- NLP uygulamaları sayesinde oyun açıklamalarındaki önemli kelimeler ve duygu analizi gerçekleştirildi.
+- XGBoost modeli, oyunların beğeni oranlarını yüksek doğrulukla tahmin etti.
+- Görselleştirmeler, oyunlarla ilgili stratejik kararlar alınmasına yardımcı oldu.
+
+#### **Öneriler:**
+- Daha fazla veri ile model performansı artırılabilir.
