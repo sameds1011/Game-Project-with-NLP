@@ -57,6 +57,46 @@ Bu proje, Steam platformundaki oyun verilerini analiz ederek şunları başarmay
 
 ---
 
+En sık geçen kelimeler:
+
+oyun oyuncu dünya zaman farklı 
+
+pozitif yorumlar
+
+
+0 Dünyanın 1 numaralı çevrimiçi aksiyon oyununu oynayın. ... 
+1 En popüler çevrimiçi aksiyon oyunlarından biri... 
+2 Mihver ve Müttefikler arasında yoğun bir mücadeleye katılın... 
+3 Ölümcül... ile hızlı tempolu çok oyunculu oyunun tadını çıkarın. 
+4 Black Mesa Araştırma Tesisi'ne geri dönün...
+
+"""""""""" Power Bl ile sağlanan bilgiler """
+
+Bir gün uyandığınızı ve temelde herşeyi yapmak zorunda olduğunuzu hayal edin.
+
+Korkularınız Saldırıya Uğrasaydı ne yapardınız ? 
+
+1940 da geçen sonlardan birinde Fransız lejyonerisiniz.
+
+İnsanlığın Engin imparatorlu kayıp oldu.
+
+ilkel silahınızı alın ve koşun.
+
+süpernovalar gece gökyüzünde parlıyor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### **5. Makine Öğrenmesi ve Modelleme**
 #### **5.1. Model Performansı:**
 - **Mean Squared Error (MSE):** 595,276.46
@@ -166,6 +206,7 @@ Oyun Öneri Sistemini Güçlendirme:
 NLP teknikleriyle içerik tabanlı oyun önerileri yapıldı.
 
 Power Bl kullanıcı yorumları ve içerik bilgileri.
+
 
 
 
