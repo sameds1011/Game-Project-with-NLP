@@ -7,7 +7,7 @@ Bu proje, Steam platformundaki oyun verilerini analiz ederek şunları başarmay
 - Oyun öneri sistemi geliştirmek,
 - Fiyatlandırma stratejilerini değerlendirmek,
 - Oyun türleri ve kullanıcı incelemeleri üzerinde içgörüler elde etmek.
-
+-Power Bl kullanıcı yorumlar içerik bilgileri ğörselleştirmeler.
 ---
 
 ### **2. Kullanılan Araçlar**
@@ -19,7 +19,7 @@ Bu proje, Steam platformundaki oyun verilerini analiz ederek şunları başarmay
 - **XGBoost**: Makine öğrenmesi modeli oluşturmak için.
 - **Scikit-Learn**: Model değerlendirmesi ve hiperparametre optimizasyonu için.
 
-#### ** Yöntemler:**
+#### **B. Yöntemler:**
 - **Z-Score ve IQR (Interquartile Range)**: Aykırı değerlerin tespiti ve düzeltilmesi.
 - **Winsorization**: Aykırı değerleri düzenleme yöntemi.
 - **Stopwords Filtreleme ve Lemmatization**: Metin temizleme ve kelime köklerine indirme.
@@ -29,7 +29,6 @@ Bu proje, Steam platformundaki oyun verilerini analiz ederek şunları başarmay
 ---
 
 ### **3. Veri Temizliği ve Ön İşleme**
-
 #### **3.1. Aykırı Değerlerin Tespiti ve Düzeltilmesi:**
 - **Z-Score** ve **IQR** yöntemleri kullanılarak aykırı değerler başarıyla tespit edildi.
 - Winsorization yöntemi ile aykırı değerler düzeltilerek veri kaybı olmadan modelin doğruluğu artırıldı.
@@ -59,16 +58,16 @@ Bu proje, Steam platformundaki oyun verilerini analiz ederek şunları başarmay
 ---
 
 ### **5. Makine Öğrenmesi ve Modelleme**
-#### ** Model Performansı:**
+#### **5.1. Model Performansı:**
 - **Mean Squared Error (MSE):** 595,276.46
 - **R^2 Skoru:** 0.745 (Model doğruluğu %74).
 - XGBoost modeli, oyunların popülerlik tahminlerinde yüksek doğruluk sağladı.
 
-#### **. Hiperparametre Optimizasyonu:**
+#### **5.2. Hiperparametre Optimizasyonu:**
 - **GridSearchCV** kullanılarak XGBoost modeli için en iyi hiperparametreler belirlendi.
 - Optimize edilmiş model daha yüksek doğruluk sağladı.
 
-#### ** Segmentasyon ve Öneri Sistemi:**
+#### **5.3. Segmentasyon ve Öneri Sistemi:**
 - **K-Means Clustering** ile oyunlar segmentlere ayrıldı.
 - İçerik tabanlı öneri sistemi geliştirildi (TF-IDF ve cosine similarity kullanılarak).
 - Kullanıcıların oyun geçmişine göre kişiselleştirilmiş öneriler sunuldu.
@@ -99,3 +98,76 @@ Bu proje, Steam platformundaki oyun verilerini analiz ederek şunları başarmay
 
 #### **Öneriler:**
 - Daha fazla veri ile model performansı artırılabilir.
+
+
+
+
+
+ Duygu Analizi (Sentiment Analysis)
+Ne Yapıldı?
+
+VADER (Valence Aware Dictionary and sEntiment Reasoner) kullanılarak kullanıcı incelemelerinin pozitif, negatif veya nötr olduğu belirlendi.
+Bazı durumlarda BERT tabanlı modellerle daha bağlamsal bir duygu analizi yapıldı.
+
+Ne İşimize Yaradı?
+Hangi oyunların olumlu veya olumsuz yorumlar aldığını tespit ederek oyunların kullanıcı beğenisi hakkında güçlü içgörüler sağladı.
+Türlere göre duygu dağılımını inceleyerek hangi oyun türlerinin daha fazla pozitif yorum aldığını belirlememize olanak tanıdı.
+
+
+ Duygu Analizi (Sentiment Analysis)
+Ne Yapıldı?
+
+VADER (Valence Aware Dictionary and sEntiment Reasoner) kullanılarak kullanıcı incelemelerinin pozitif, negatif veya nötr olduğu belirlendi.
+Bazı durumlarda BERT tabanlı modellerle daha bağlamsal bir duygu analizi yapıldı.
+
+Ne İşimize Yaradı?
+Hangi oyunların olumlu veya olumsuz yorumlar aldığını tespit ederek oyunların kullanıcı beğenisi hakkında güçlü içgörüler sağladı.
+Türlere göre duygu dağılımını inceleyerek hangi oyun türlerinin daha fazla pozitif yorum aldığını belirlememize olanak tanıdı.
+
+
+
+Kelime Bulutu (Word Cloud)
+
+Kullanıcı incelemelerinden ve oyun açıklamalarından kelime bulutu oluşturuldu.
+En sık kullanılan kelimeler ve önemli anahtar terimler görselleştirildi.
+
+
+
+Ne İşimize Yaradı?
+Kullanıcıların oyunlar hakkında ne düşündüğünü hızlı bir şekilde anlamak için görsel bir özet sundu.
+Hangi özelliklerin kullanıcılar tarafından öne çıkarıldığını anlamamıza yardımcı oldu (örneğin, "graphics", "storyline").
+
+
+ TF-IDF ile Önemli Kelimelerin Çıkarılması
+Ne Yapıldı?
+TF-IDF (Term Frequency-Inverse Document Frequency) yöntemiyle kullanıcı yorumlarında önemli kelimeler belirlendi.
+Bu kelimeler, oyunların içerik tabanlı özelliklerini anlamak için kullanıldı.
+Ne İşimize Yaradı?
+Daha güçlü bir içerik tabanlı oyun öneri sistemi için kelime bazlı anlam çıkarımı sağladı.
+Kullanıcıların hangi özelliklere önem verdiğini belirledi (örneğin, "multiplayer", "realistic graphics").
+
+
+
+ Projeye Katkıları
+
+Kullanıcı Deneyimini Anlama:
+
+Kullanıcıların oyunlarla ilgili duygu ve düşünceleri hakkında güçlü içgörüler sağladı.
+Kullanıcı yorumlarından oyunların güçlü ve zayıf yönleri anlaşıldı.
+Veriyi Zenginleştirme:
+
+Eksik tür veya kategorilerin tahmin edilmesiyle veri seti zenginleştirildi.
+İncelemelerden anlamlı özellikler çıkarıldı.
+Etkileyici Görselleştirmeler:
+
+Kelime bulutları ve duygu analizlerinin görselleştirilmesi, sunum ve raporlama aşamasında projeyi güçlendirdi.
+Oyun Öneri Sistemini Güçlendirme:
+
+NLP teknikleriyle içerik tabanlı oyun önerileri yapıldı.
+
+Power Bl kullanıcı yorumları ve içerik bilgileri.
+
+
+
+
+
